@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      html, body {
+        margin: 0; padding: 0; background-color: white;
+      }
+
+      svg {
+        stroke: #574419;
+        stroke-width: 0.08;
+        fill: none;
+      }
+
+      .untransformed_stroke {
+        /*Divide normal stroke by scale to counterscale*/
+        stroke-width: 0.0184;
+      }
+
+      .container {
+        position: relative;
+        width: 1000px;
+        height: 1000px;
+        margin: 0 auto;
+      }
+      .container > svg {
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+
+      .bg {
+        stroke: #48c;
+        stroke-width: 0.02;
+        opacity: 0.5;
+      }
+
+      .bg .untransformed_stroke {
+        /*Divide normal stroke by scale to counterscale*/
+        stroke-width: 0.0046;
+      }
+
+      .rotator {
+        -webkit-animation: spin 20s infinite linear;
+        animation: spin 20s infinite linear;
+      }
+
+      @-webkit-keyframes spin {
+          0%   {-webkit-transform: rotate(0deg);transform: rotate(0deg)}
+          100% {-webkit-transform: rotate(360deg);transform: rotate(360deg)}
+      }
+
+      @keyframes spin {
+          0%   {-webkit-transform: rotate(0deg);transform: rotate(0deg)}
+          100% {-webkit-transform: rotate(360deg);transform: rotate(360deg)}
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <svg class="bg" width="1000" height="1000" viewBox="-1.5 -1.5 3 3">
+        <g transform="rotate(-45)">
+          <!-- Circle around all the cogs -->
+          <circle stroke-dasharray="0.11, 0.05" class="untransformed_stroke" r="1"/>
+
+          <!-- Measuring lines around whole thing -->
+          <g class="untransformed_stroke">
+            <path d="M-1.0 -1.2 L 1 -1.2" />
+            <path d="M-1.0 -1.3 L -1 0" />
+            <path d="M1.0 -1.3 L 1 0" />
+            <path d="M-0.95 -1.25 L -1.05 -1.15" />
+            <path d="M1.05 -1.25 L 0.95 -1.15" />
+          </g>
+          <!-- Cross lines through center -->
+          <g class="untransformed_stroke" stroke-dasharray="0.3, 0.05, 0.05, 0.05, 0.4, 1.0">
+            <path d="M-1.2 0 L 0 0" />
+            <path d="M0 -1.2 L 0 0" />
+            <path d="M1.2 0 L 0 0" />
+            <path d="M0 1.2 L 0 0" />
+          </g>
+          <!-- Measuring lines around center -->
+          <g class="untransformed_stroke" transform="rotate(45)">
+            <path d="M0 0.168 L 0.45 0.168" />
+            <path d="M0 -0.168 L 0.45 -0.168" />
+            <path d="M0.4 -0.218 L 0.4 0.218" />
+
+            <path d="M0.35 -0.218 L 0.45 -0.118" />
+            <path d="M0.35 0.118 L 0.45 0.218" />
+          </g>
+        </g>
+      </svg>
+
+      <svg class="center" width="1000" height="1000" viewBox="-1.5 -1.5 3 3">
+        <circle class="untransformed_stroke" r="0.168"/>
+        <circle class="untransformed_stroke" r="0.318"/>
+        <circle class="untransformed_stroke" r="0.2777"/>
+      </svg>
+
+      <svg class="rotator" width="1000" height="1000" viewBox="-1.5 -1.5 3 3">
+        <defs>
+          <g id="singlecog" class="cogclass">
+            <!-- # Full width is   666
+            # Cog height      64
+            # Cog base width  72
+            # Cog to curve middle height 42
+            # Number of cogs: 15 -->
+            <g transform="translate(0, -0.895) scale(0.23)">
+              <path transform="translate(-0.5, -1)" d="M0 1 C 0.006 0.8, 0.05 0.4, 0.2 0.15 L 0.8 0.15 C 0.95 0.4, 0.994 0.8, 1 1" />
+            </g>
+          </g>
+
+          <g id="divider" class="dividerclass">
+            <g transform="translate(0, -0.895) scale(0.23)">
+              <path transform="translate(0, 0)" d="M0 0 L 0 1" />
+            </g>
+          </g>
+
+        </defs>
+
+        <g>
+          <g>
+            <use xlink:href="#singlecog" x="0" y="0" transform="rotate(0)" />
+            <use xlink:href="#singlecog" x="0" y="0" transform="rotate(24)" />
+            <use xlink:href="#singlecog" x="0" y="0" transform="rotate(48)" />
+            <use xlink:href="#singlecog" x="0" y="0" transform="rotate(72)" />
+            <use xlink:href="#singlecog" x="0" y="0" transform="rotate(96)" />
+            <use xlink:href="#singlecog" x="0" y="0" transform="rotate(120)" />
+            <use xlink:href="#singlecog" x="0" y="0" transform="rotate(144)" />
+            <use xlink:href="#singlecog" x="0" y="0" transform="rotate(168)" />
+            <use xlink:href="#singlecog" x="0" y="0" transform="rotate(192)" />
+            <use xlink:href="#singlecog" x="0" y="0" transform="rotate(216)" />
+            <use xlink:href="#singlecog" x="0" y="0" transform="rotate(240)" />
+            <use xlink:href="#singlecog" x="0" y="0" transform="rotate(264)" />
+            <use xlink:href="#singlecog" x="0" y="0" transform="rotate(288)" />
+            <use xlink:href="#singlecog" x="0" y="0" transform="rotate(312)" />
+            <use xlink:href="#singlecog" x="0" y="0" transform="rotate(336)" />
+          </g>
+
+          <g transform="rotate(12)">
+            <use xlink:href="#divider" x="0" y="0" transform="rotate(0)" />
+            <use xlink:href="#divider" x="0" y="0" transform="rotate(24)" />
+            <use xlink:href="#divider" x="0" y="0" transform="rotate(48)" />
+            <use xlink:href="#divider" x="0" y="0" transform="rotate(72)" />
+            <use xlink:href="#divider" x="0" y="0" transform="rotate(96)" />
+            <use xlink:href="#divider" x="0" y="0" transform="rotate(120)" />
+            <use xlink:href="#divider" x="0" y="0" transform="rotate(144)" />
+            <use xlink:href="#divider" x="0" y="0" transform="rotate(168)" />
+            <use xlink:href="#divider" x="0" y="0" transform="rotate(192)" />
+            <use xlink:href="#divider" x="0" y="0" transform="rotate(216)" />
+            <use xlink:href="#divider" x="0" y="0" transform="rotate(240)" />
+            <use xlink:href="#divider" x="0" y="0" transform="rotate(264)" />
+            <use xlink:href="#divider" x="0" y="0" transform="rotate(288)" />
+            <use xlink:href="#divider" x="0" y="0" transform="rotate(312)" />
+            <use xlink:href="#divider" x="0" y="0" transform="rotate(336)" />
+          </g>
+          <circle class="untransformed_stroke" r="0.665"/>
+          <circle class="untransformed_stroke" r="0.55"/>
+          <circle class="untransformed_stroke" r="0.9"/>
+        </g>
+      </svg>
+
+
+    </div>
+  </body>
+</html>
